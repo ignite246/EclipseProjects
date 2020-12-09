@@ -14,13 +14,14 @@ import javax.ws.rs.core.MediaType;
 public class UserService {
 	
 
-//*****************************************************************	
+//************************* PathParam ****************************************	
+//http://localhost:8080/DemoWebService/rs/userservice/path/120/Mohit
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/path/{roll}/{name}")
 	public String createUserUsingPathParam(@PathParam("roll") String roll, 
-											@PathParam("name") String name) {
+										   @PathParam("name") String name) {
 
 		if (roll != null && name != null) 
 		{
@@ -34,8 +35,10 @@ public class UserService {
 		}
 	}
 
-//**************************************************************************************
-
+//************************ QueryParam *************************************
+//http://localhost:8080/DemoWebService/rs/userservice/query?roll=120&name=Mohit
+	
+	
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	@Path("/query")
@@ -54,7 +57,8 @@ public class UserService {
 	}
 	
 	
-//***************************************************************************************
+//********************** MatrixParam *************************************
+// http://localhost:8080/DemoWebService/rs/userservice/matrix;roll=120;name=Mohit
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -73,7 +77,7 @@ public class UserService {
 		}
 	}
 	
-//****************************************************************************************	
+//*********************** FormParam *************************************	
 	
 	@POST
 	@Produces(MediaType.TEXT_HTML)
